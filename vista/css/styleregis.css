@@ -1,0 +1,23 @@
+.container{
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.foto{ 
+width: 150px;
+height: 150px;
+margin-bottom: 20px;
+
+}
+
+#email{
+    width: 600px;
+}
+
+#password{
+    width: 600px;
+}
+
+#nombre{
+    width: 600px;
+}
