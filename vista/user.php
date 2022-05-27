@@ -108,7 +108,7 @@
                 <img id="imgPerfil" src="image/descarga (1).jpg" alt="">
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><h5> <?php  echo $_SESSION['NOMBRE_USUARIO']?></h5></li>
+                <li class="nombrep"><h5 > <?php  echo $_SESSION['NOMBRE_USUARIO']?></h5></li>
                 <li><a class="dropdown-item" href="editar.php">Editar Perfil</a></li>
                 <li><a class="dropdown-item" href="../controlador/accion/act_logout.php">Cerrar sesión</a></li>
               </ul>

@@ -12,7 +12,7 @@ $contrasena2 = $_POST['contrasena2'];
 
 if ($nombre != "" and $correo != "" and $contrasena1 != "" and $contrasena2!= "" and $contrasena1 == $contrasena2 ) {
 
-         $usuario = new Usuario(NULL, NULL, $nombre, $correo,$contrasena1);
+         $usuario = new Usuario(NULL,$nombre,$correo,$contrasena1);
         $registro = registrarUsuario($usuario);
         if ($registro)
             header("Location: ../../vista/user.php");

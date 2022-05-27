@@ -3,14 +3,12 @@
 class Usuario
 {
     public $idusuario;
-    public $foto;
     public $nombre;
     public $correo;
     public $contrasena;
     
-    public function __construct($idusuario, $foto, $nombre, $correo, $contrasena) {
+    public function __construct($idusuario, $nombre, $correo, $contrasena) {
         $this->idusuario = $idusuario;
-        $this->foto = $foto;
         $this->nombre = $nombre;
         $this->correo = $correo;
         $this->contrasena = $contrasena;
@@ -20,9 +18,6 @@ class Usuario
         return $this->idusuario;
     }
 
-    public function getFoto() {
-        return $this->foto;
-    }
 
     public function getNombre() {
         return $this->nombre;
@@ -40,9 +35,6 @@ class Usuario
         $this->idusuario = $idusuario;
     }
 
-    public function setFoto($foto): void {
-        $this->foto = $foto;
-    }
 
     public function setNombre($nombre): void {
         $this->nombre = $nombre;

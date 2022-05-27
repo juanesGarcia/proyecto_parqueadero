@@ -17,10 +17,18 @@ move_uploaded_file($nom_img,$mos);
 
 
 
-if ($nombre != "" and $correo != "" and $password != "" and $archivo!="") {
-  $usuario = new Usuario($idUsuario, $nombre, $correo, $password,$mos_f);
+if ($nombre != "" and $correo != "" and $password != "" ) {
+
+  if($archivo!=""){
+     $usuario = new Usuario($idUsuario, $nombre, $correo, $password,$mos_f);
   editarUsuario($usuario);
   header("Location: ../../vista/index.php");
+  }else{
+    $usuario = new Usuario($idUsuario, $nombre, $correo, $password,NULL);
+    editarUsuario($usuario);
+    header("Location: ../../vista/index.php");
+  }
+ 
 } else {
   header("Location:../../vista/falla.php");
 }

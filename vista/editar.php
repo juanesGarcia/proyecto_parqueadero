@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset(($_SESSION['CORREO_USUARIO']))) {
+if (!isset(($_SESSION['ID_USUARIO']))) {
     header("Location: index.php");
 }
 ?>
@@ -138,12 +138,15 @@ if (!isset(($_SESSION['CORREO_USUARIO']))) {
             <div id="izquierda">
                 <img id="imgperfil" src="image/descarga (1).jpg" alt="fotoperfil">
             </div>
+            <br><br>
             <div id="derecha">
-                <h3 id="nombre">Nombre: </h3>
-                <h3 id="correo">Email: </h3>
+                <h3 id="nombre">Nombre:  <?php echo $_SESSION['NOMBRE_USUARIO'] ?> </h3>
+                <br>
+                <h3 id="correo">Email:  <?php echo $_SESSION['CORREO_USUARIO'] ?> </h3>
             </div>
+            <br> <br>
             <div id="abajo">
-                <button id="editar" class="boton" type="button" data-bs-toggle="modal"
+                <button id="editar" class="btn btn-secondary" type="button" data-bs-toggle="modal"
                     data-bs-target="#editarModal">Editar</button>
                 <a href="../controlador/accion/act_eliminarUsuario.php"><button class="boton">Eliminarme</button></a>
             </div>
@@ -157,25 +160,26 @@ if (!isset(($_SESSION['CORREO_USUARIO']))) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="../controlador/accion/act_editarUsuario.php" method="POST" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label for="Nombre-name" class="col-form-label">Nombre:</label>
+                            <label for="name" class="col-form-label">Nombre:</label>
                             <input value="" name="nombre" type="text" class="form-control" id="Nombre">
                         </div>
                         <div class="mb-3">
-                            <label for="Correo-name" class="col-form-label">Correo:</label>
+                            <label for="correo" class="col-form-label">Correo:</label>
                             <input value="" name="correo" type="text" class="form-control" id="Correo">
                         </div>
                         <div class="mb-3">
-                            <label for="Contrasena-name" class="col-form-label">Contraseña:</label>
+                            <label for="contraseña" class="col-form-label">Contraseña:</label>
                             <input value="" name="contrasena" type="password" class="form-control" id="Contrasena">
                         </div>
-                    </form>
+                    
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button onclick="actualizar()" type="button" class="btn btn-primary">Guardar</button>
+                    <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit"  class="btn btn-primary">Guardar</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
