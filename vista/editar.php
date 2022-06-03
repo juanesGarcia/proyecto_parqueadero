@@ -173,15 +173,15 @@ header("Pragma: no-cache");
                     <form action="../controlador/accion/act_editarUsuario.php" method="POST" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="name" class="col-form-label" >Nombre:</label>
-                            <input value="" name="nombre" type="text" class="form-control" id="Nombre" value=" <?php echo $_SESSION['NOMBRE_USUARIO'] ?>">
+                            <input value="" name="nombre" type="text" class="form-control" id="Nombre" >
                         </div>
                         <div class="mb-3">
                             <label for="correo" class="col-form-label">Correo:</label>
-                            <input value="" name="correo" type="text" class="form-control" id="Correo" value=" <?php echo $_SESSION['CORREO_USUARIO'] ?>">
+                            <input value="" name="correo" type="text" class="form-control" id="Correo" >
                         </div>
                         <div class="mb-3">
                             <label for="contraseña" class="col-form-label">Contraseña:</label>
-                            <input value="" name="contrasena" type="password" class="form-control" id="Contrasena" value=" <?php echo $_SESSION['CONTRASENA_USUARIO'] ?>">
+                            <input value="" name="contrasena" type="password" class="form-control" id="Contrasena" >
                         </div>
                     
                 </div>
