@@ -18,7 +18,7 @@ if ($user != null) {
     //Si el usuario fue encontrado, se guarda su ID en una sesión con $_SESSION
 
     if ($correo == 'admin@gmail.com' and $contrasena == 'admin') {
-        $_SESSION['Id_USUARIO'] = $user->getIdusuario();
+        $_SESSION['ID_USUARIO'] = $user->getIdusuario();
         $_SESSION['NOMBRE_USUARIO'] = $user->getNombre();
         $_SESSION['CORREO_USUARIO'] = $user->getCorreo();
         $_SESSION['CONTRASENA_USUARIO'] = $user->getContrasena();
@@ -26,7 +26,7 @@ if ($user != null) {
 
         header("Location: ../../vista/admin.php");
     } else {
-        $_SESSION['Id_USUARIO'] = $user->getIdusuario();
+        $_SESSION['ID_USUARIO'] = $user->getIdusuario();
         $_SESSION['NOMBRE_USUARIO'] = $user->getNombre();
         $_SESSION['CORREO_USUARIO'] = $user->getCorreo();
         $_SESSION['CONTRASENA_USUARIO'] = $user->getContrasena();

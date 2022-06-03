@@ -129,6 +129,8 @@ class UsuarioDAO {
             ':correo' => $usuario->getCorreo(),
             ':contrasena' => $usuario->getContrasena(),
             ':idUsuario' => $usuario->getIdusuario()
+
+           
         )); 
 
       return $resultado;

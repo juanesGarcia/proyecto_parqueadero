@@ -6,12 +6,12 @@
 
     $idusuario = $_SESSION['ID_USUARIO'];
 
-    $nombre = filter_input(INPUT_POST,'nombre');
-    $correo = filter_input(INPUT_POST,'correo');
-    $contrasena = filter_input(INPUT_POST,'contrasena');
+    $nombre = $_POST['nombre'];
+    $correo = $_POST['correo'];
+    $password = $_POST['contrasena'];
 
-   if((!empty($nombre)) && (!empty($correo)) && (!empty($contrasena))){
-       $user = new Usuario($idusuario, NULL, $nombre, $correo, $contrasena);
+   if($nombre!=NULL && $correo!=NULL && $contrasena!=NULL){
+       $user = new Usuario(NULL,$nombre, $correo, $contrasena,NULL);
        editarUsuario($user);
        echo 1;
     }

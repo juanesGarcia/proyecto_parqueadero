@@ -1,8 +1,12 @@
 <?php
 session_start();
 if (!isset(($_SESSION['ID_USUARIO']))) {
-    header("Location: index.php");
+    header("Location: iniciar.php");
 }
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +21,11 @@ if (!isset(($_SESSION['ID_USUARIO']))) {
     <title>Usuario</title>
     <script src="js/librerias/jquery-3.6.0.min.js"></script>
 </head>
+<script> 
+    function mover(){
+        window.location.href="../controlador/accion/act_eliminarUsuario.php";
+    }
+</script>
 
 <body>
     <div class="container-fluid">
@@ -100,7 +109,6 @@ if (!isset(($_SESSION['ID_USUARIO']))) {
 
                                             <div class="conimg">
                                                 <h5 class="modal-title1" id="staticBackdropLabel1">Código QR</h5>
-                                                <h5> <?php echo $_SESSION['NOMBRE_USUARIO'] ?></h5>
                                                 <h5> <?php echo $_SESSION['CORREO_USUARIO'] ?></h5>
                                                 <img class="imagen" src="image/juanestebancubillos_qr.png">
                                             </div>
@@ -121,7 +129,9 @@ if (!isset(($_SESSION['ID_USUARIO']))) {
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li>
-                                    <h5> <?php echo $_SESSION['NOMBRE_USUARIO'] ?></h5>
+                                    <h5> <?php echo $_SESSION['CORREO_USUARIO'] ?></h5>
+        
+
                                 </li>
                                 <li><a class="dropdown-item" href="editar.php">Editar Perfil</a></li>
                                 <li><a class="dropdown-item" href="../controlador/accion/act_logout.php">Cerrar
@@ -140,15 +150,15 @@ if (!isset(($_SESSION['ID_USUARIO']))) {
             </div>
             <br><br>
             <div id="derecha">
-                <h3 id="nombre">Nombre:  <?php echo $_SESSION['NOMBRE_USUARIO'] ?> </h3>
+                <h3 id="nombre">Nombre:  <?php echo $_SESSION['CORREO_USUARIO'] ?> </h3>
                 <br>
-                <h3 id="correo">Email:  <?php echo $_SESSION['CORREO_USUARIO'] ?> </h3>
+                <h3 id="correo">Email:  <?php echo $_SESSION['CONTRASENA_USUARIO'] ?> </h3>
             </div>
             <br> <br>
             <div id="abajo">
                 <button id="editar" class="btn btn-secondary" type="button" data-bs-toggle="modal"
                     data-bs-target="#editarModal">Editar</button>
-                <a href="../controlador/accion/act_eliminarUsuario.php"><button class="boton">Eliminarme</button></a>
+                <button class="btn btn-dangerous" onclick="mover()">Eliminarme</button>
             </div>
         </div>
     </div>
@@ -162,16 +172,16 @@ if (!isset(($_SESSION['ID_USUARIO']))) {
                 <div class="modal-body">
                     <form action="../controlador/accion/act_editarUsuario.php" method="POST" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label for="name" class="col-form-label">Nombre:</label>
-                            <input value="" name="nombre" type="text" class="form-control" id="Nombre">
+                            <label for="name" class="col-form-label" >Nombre:</label>
+                            <input value="" name="nombre" type="text" class="form-control" id="Nombre" value=" <?php echo $_SESSION['NOMBRE_USUARIO'] ?>">
                         </div>
                         <div class="mb-3">
                             <label for="correo" class="col-form-label">Correo:</label>
-                            <input value="" name="correo" type="text" class="form-control" id="Correo">
+                            <input value="" name="correo" type="text" class="form-control" id="Correo" value=" <?php echo $_SESSION['CORREO_USUARIO'] ?>">
                         </div>
                         <div class="mb-3">
                             <label for="contraseña" class="col-form-label">Contraseña:</label>
-                            <input value="" name="contrasena" type="password" class="form-control" id="Contrasena">
+                            <input value="" name="contrasena" type="password" class="form-control" id="Contrasena" value=" <?php echo $_SESSION['CONTRASENA_USUARIO'] ?>">
                         </div>
                     
                 </div>

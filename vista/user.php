@@ -1,6 +1,6 @@
 <?php 
   session_start();
-  if(!isset(($_SESSION['CORREO_USUARIO']))){
+  if(!isset(($_SESSION['ID_USUARIO']))){
       header("Location: index.php");
   }
 ?>
@@ -90,7 +90,6 @@
                       <div class="conimg">
                         <h5 class="modal-title1" id="staticBackdropLabel1">Código QR</h5>
                         <h5> <?php  echo $_SESSION['NOMBRE_USUARIO']?></h5>
-                        <h5> <?php  echo $_SESSION['CORREO_USUARIO']?></h5>
                         <img class="imagen" src="image/juanestebancubillos_qr.png">
                       </div>
                     </div>
