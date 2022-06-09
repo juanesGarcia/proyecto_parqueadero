@@ -13,7 +13,7 @@ $password = $_POST['contrasena'];
 
 if ($nombre != "" and $correo != "" and $password != "" ) {
 
-    $usuario = new Usuario($idUsuario, $nombre, $correo, $password);
+    $usuario = new Usuario($idUsuario,$nombre, $correo, $password);
     editarUsuario($usuario);
     header("Location: ../../vista/editar.php");
   }

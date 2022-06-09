@@ -25,6 +25,9 @@ header("Pragma: no-cache");
     function mover(){
         window.location.href="../controlador/accion/act_eliminarUsuario.php";
     }
+    function mover1(){
+        window.location.href="../controlador/accion/act_logout.php";
+    }
 </script>
 
 <body>
@@ -181,13 +184,13 @@ header("Pragma: no-cache");
                         </div>
                         <div class="mb-3">
                             <label for="contraseña" class="col-form-label">Contraseña:</label>
-                            <input value="" name="contrasena" type="password" class="form-control" id="Contrasena" >
+                            <input value="" name="contrasena" type="password" class="form-control" id="Contrasena">
                         </div>
                     
                 </div>
                 <div class="modal-footer">
                     <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit"  class="btn btn-primary">Guardar</button>
+                    <button type="submit"  class="btn btn-primary" onclick="mover1()">Guardar</button>
                 </div>
                 </form>
             </div>
