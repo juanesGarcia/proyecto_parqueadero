@@ -6,7 +6,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
 
-var cantidaddocentes = 1,
+var cantidaddocentes = 1,cantidaddocentesini=1,
   cantidadbicis = 2,
   cantidadpibe = 3,
   cantidadhemi = [0,1,2,3],
@@ -78,7 +78,11 @@ function mostrar() {
 
     console.log(cantidadbicis);
   } else if (output == "ParqueaderoDocentes") {
-    cantidaddocentes -= 1;
+    console.log(cantidaddocentes);
+    if(cantidaddocentes>0){
+       cantidaddocentes -= 1;
+    }
+    
    info(parqueaderodocentes, "parqueadero docentes", cantidaddocentes);
     if (cantidaddocentes == 0) {
       var markred = new L.Icon({
@@ -88,6 +92,10 @@ function mostrar() {
       });
       doc=L.marker([11.22639437377533, -74.18541817570676], { icon: markred }).addTo(map);
       map.removeLayer(parqueaderodocentes);
+    }else{
+      map.removeLayer(parqueaderodocentes);
+        map.removeLayer(d);
+      map.removeLayer(doc);
     }
     console.log(cantidaddocentes);
   } else if (output == "Parqueaderopibe") {
@@ -166,15 +174,20 @@ function librar() {
      cantidadbicis+=1;   
 
     console.log(cantidadbicis);
-  } else if (output == "ParqueaderoDocentes") {
-    if(cantidaddocentes==0){
+  } else if (output == "ParqueaderoDocentes") { 
+    if (cantidaddocentes+1<=cantidaddocentesini) {
+        cantidaddocentes+=1;  
+      }
       map.removeLayer(doc);
+    if(cantidaddocentes==1){
+      
        d =L.marker([11.22639437377533, -74.18541817570676]).addTo(map);
-        info(d, "parqueadero docentes",cantidaddocentes+1);
+        info(d, "parqueadero docentes",cantidaddocentes);
     }else{
-        info(d,"parqueadero  docentes",cantidaddocentes+1);
+     
+        info(d,"parqueadero  docentes",cantidaddocentes);
     }
-     cantidaddocentes+=1;   
+     
     console.log(cantidaddocentes);
   } else if (output == "Parqueaderopibe") {
     
