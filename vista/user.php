@@ -33,7 +33,7 @@ if (!isset(($_SESSION['CORREO_USUARIO']))) {
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reservar lugar de parqueo</a>
+              <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reservar o liberar espacio</a>
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -42,58 +42,27 @@ if (!isset(($_SESSION['CORREO_USUARIO']))) {
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <select id="mostrar" class="Rol" name="sexo">
+                      <select id="mostrar" >
 
                         <option disabled selected="">Seleccione un paquedero</option>
-                        <option value="Parqueaderohemiciclo" >Parqueadero Hemiciclo</option>
+                        <option value="Parqueaderohemiciclo">Parqueadero Hemiciclo</option>
                         <option value="Parqueaderodestapada">Parqueadero Destapada</option>
                         <option value="ParqueaderoBicis">Parqueadero Bicicletas</option>
                         <option value="ParqueaderoDocentes">Parqueadero Docentes</option>
                         <option value="Parqueaderopibe">Parqueadero Pibe</option>
-                        <option  value="ParqueaderoBloque3">Parqueadero Bloque 3</option>
+                        <option value="ParqueaderoBloque3">Parqueadero Bloque 3</option>
 
                       </select>
-
-                      <!--
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" href="#" id="ParqueaderoHemiciclo">Parqueadero Hemiciclo</a></li>
-                          <li><a class="dropdown-item" href="#" id="ParqueaderoDestapada">Parqueadero Destapada</a></li>
-                          <li><a class="dropdown-item" href="#" id="ParqueaderoBicicletas">Parqueadero Bicicletas</a></li>
-                          <li><a class="dropdown-item" href="#" id="ParqueaderoDocentes">Parqueadero Docentes</a></li>
-                          <li><a class="dropdown-item" href="#" id="ParqueaderoPibe">Parqueadero Pibe</a></li>
-                          <li><a class="dropdown-item" href="#" id="ParqueaderoB">Parqueadero Bloque 3</a></li>
-                        </ul>-->
-
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="mostrar()">Close</button>
-
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="mostrar()">Reservar</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="librar()">liberar</button>
                     </div>
                   </div>
                 </div>
               </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Consultar espacio</a>
-              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="staticBackdropLabel">Consulta</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <input class="inputsModalReserva" type="text" placeholder="Nombre de parqueadero (parqueadero norte, sur...)"><br>
-                      <input class="inputsModalReserva" type="text" placeholder="Número de espacio |  |">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn" style="background-color: #e3f2fd;">Consulta</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
+           
             <li class="nav-item">
               <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">Generar código
                 QR</a>
@@ -106,7 +75,7 @@ if (!isset(($_SESSION['CORREO_USUARIO']))) {
                         <h5 class="modal-title1" id="staticBackdropLabel1">Código QR</h5>
                         <h5> <?php echo $_SESSION['NOMBRE_USUARIO'] ?></h5>
                         <h5> <?php echo $_SESSION['CORREO_USUARIO'] ?></h5>
-                        <img class="imagen" src="image/juanestebancubillos_qr.png">
+                        <img class="imagen" src="image/qrcode_www.unimagdalena.edu.co.png">
                       </div>
                     </div>
                     <div class="modal-footer">
